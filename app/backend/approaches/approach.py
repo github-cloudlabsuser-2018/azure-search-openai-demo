@@ -1,4 +1,24 @@
 import os
+"""
+This module defines the `Approach` class and related data structures for handling document search and retrieval using Azure Search and OpenAI.
+Classes:
+    Document: Represents a document with various attributes including content, embeddings, and metadata.
+    ThoughtStep: Represents a step in a thought process with a title, description, and optional properties.
+    Approach: Abstract base class for implementing different search and retrieval approaches.
+Functions:
+    Document.serialize_for_results: Serializes the document for search results.
+    Document.trim_embedding: Trims the embedding list for display purposes.
+    Approach.__init__: Initializes the Approach class with various clients and configuration parameters.
+    Approach.build_filter: Builds a search filter based on overrides and authentication claims.
+    Approach.search: Performs a search using text and/or vector queries and returns a list of qualified documents.
+    Approach.get_sources_content: Retrieves the content of the source documents.
+    Approach.get_citation: Generates a citation string for a given source page.
+    Approach.compute_text_embedding: Computes the text embedding for a given query using OpenAI.
+    Approach.compute_image_embedding: Computes the image embedding for a given query using a vision endpoint.
+    Approach.run: Abstract method to be implemented by subclasses for running the approach.
+    Approach.run_stream: Abstract method to be implemented by subclasses for running the approach in a streaming manner.
+"""
+
 from abc import ABC
 from dataclasses import dataclass
 from typing import (
